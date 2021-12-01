@@ -29,7 +29,7 @@ jobs:
         run: ./mvnw clean verify
 
       - name: SonarCloud Scan
-        run: ./mvnw -B sonar:sonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
+        run: ./mvnw initialize sonar:sonar -Dsonar.login=${{ secrets.SONAR_TOKEN }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
