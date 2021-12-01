@@ -58,7 +58,7 @@ public class AuthenticationController {
         if (authToken != null) {
             String email = tokenHelper.getUsernameFromToken(authToken);
             SecurityUser user = (SecurityUser) userDetailsService.loadUserByUsername(email);
-            Boolean validToken = tokenHelper.validateToken(authToken, user);
+            boolean validToken = tokenHelper.validateToken(authToken, user);
             if (validToken) {
                 String refreshedToken = tokenHelper.refreshToken(authToken);
                 return ResponseEntity.ok(getAuthenticationResponse(user, refreshedToken));
