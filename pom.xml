@@ -31,7 +31,7 @@
 		<properties-maven-plugin.version>1.0.0</properties-maven-plugin.version>
 		<sonar-maven-plugin.version>3.7.0.1746</sonar-maven-plugin.version>
 		<jacoco-maven-plugin.version>0.8.6</jacoco-maven-plugin.version>
-		<jacoco.minimum.coverage>80%</jacoco.minimum.coverage>
+		<jacoco.minimum.coverage>75%</jacoco.minimum.coverage>
 		<jacoco.utReportFolder>${project.build.directory}/jacoco/test</jacoco.utReportFolder>
 		<jacoco.utReportFile>${jacoco.utReportFolder}/test.exec</jacoco.utReportFile>
 		<jacoco.itReportFolder>${project.build.directory}/jacoco/integrationTest</jacoco.itReportFolder>
@@ -51,10 +51,6 @@
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-web</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-security</artifactId>
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -119,20 +115,10 @@
 			<artifactId>jsoup</artifactId>
 			<version>${jsoup.version}</version>
 		</dependency>
-		<dependency>
-			<groupId>io.jsonwebtoken</groupId>
-			<artifactId>jjwt</artifactId>
-			<version>${jjwt.version}</version>
-		</dependency>
 		<!-- Test dependencies -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.security</groupId>
-			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
