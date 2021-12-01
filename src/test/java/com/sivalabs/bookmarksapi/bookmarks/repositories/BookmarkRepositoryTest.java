@@ -16,7 +16,7 @@ import org.springframework.test.context.ActiveProfiles;
             "spring.datasource.url=jdbc:tc:postgresql:12.3:///testdb"
         })
 @ActiveProfiles(PROFILE_IT)
-class BookmarkRepositoryIT {
+class BookmarkRepositoryTest {
 
     @Autowired private BookmarkRepository bookmarkRepository;
 
