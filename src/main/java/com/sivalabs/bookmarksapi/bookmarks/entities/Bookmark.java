@@ -1,8 +1,8 @@
 package com.sivalabs.bookmarksapi.bookmarks.entities;
 
+import com.sivalabs.bookmarksapi.common.entities.BaseEntity;
 import com.sivalabs.bookmarksapi.users.entities.User;
 import java.io.Serializable;
-import java.time.LocalDateTime;
 import java.util.Set;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -14,8 +14,6 @@ import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
 import javax.persistence.ManyToOne;
-import javax.persistence.PrePersist;
-import javax.persistence.PreUpdate;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.validation.constraints.NotEmpty;
@@ -26,7 +24,7 @@ import lombok.Setter;
 @Getter
 @Entity
 @Table(name = "bookmarks")
-public class Bookmark implements Serializable {
+public class Bookmark extends BaseEntity implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "bookmark_id_generator")
     @SequenceGenerator(
@@ -53,20 +51,4 @@ public class Bookmark implements Serializable {
     @ManyToOne
     @JoinColumn(name = "created_by", nullable = false)
     private User createdBy;
-
-    @Column(updatable = false)
-    private LocalDateTime createdAt = LocalDateTime.now();
-
-    @Column(insertable = false)
-    private LocalDateTime updatedAt = LocalDateTime.now();
-
-    @PrePersist
-    public void onCreate() {
-        createdAt = LocalDateTime.now();
-    }
-
-    @PreUpdate
-    public void onUpdate() {
-        updatedAt = LocalDateTime.now();
-    }
 }
