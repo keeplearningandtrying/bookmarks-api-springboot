@@ -3,9 +3,11 @@ package com.sivalabs.bookmarks.domain.models;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.time.LocalDateTime;
 import javax.validation.constraints.NotBlank;
-import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
-@Data
+@Setter
+@Getter
 public class BookmarkDTO {
     private Long id;
 

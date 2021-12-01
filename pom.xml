@@ -372,8 +372,10 @@
 							</rules>
 							<excludes>
 								<exclude>**/*Application.*</exclude>
+								<exclude>**/config/**</exclude>
 								<exclude>**/models/**</exclude>
 								<exclude>**/dtos/**</exclude>
+								<exclude>**/utils/**</exclude>
 								<exclude>**/exceptions/**</exclude>
 							</excludes>
 						</configuration>

@@ -2,7 +2,6 @@ package com.sivalabs.bookmarks.domain.models;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import java.util.List;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -11,7 +10,6 @@ import org.springframework.data.domain.Page;
 @Setter
 @Getter
 @NoArgsConstructor
-@AllArgsConstructor
 public class BookmarksDTO {
     private List<BookmarkDTO> data;
     private long totalElements;
