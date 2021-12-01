@@ -3,6 +3,7 @@ name: Feature Branch CI
 on:
   push:
     branches:
+      - '**'
       - '!main'
 
 jobs:
@@ -17,7 +18,7 @@ jobs:
         with:
           java-version: 11
 
-      - name: Cache local Maven repository
+      - name: Cache Maven repository
         uses: actions/cache@v2
         with:
           path: ~/.m2/repository
