@@ -15,7 +15,7 @@ import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.test.context.support.WithMockUser;
 
-class UserControllerIT extends AbstractIntegrationTest {
+class UserControllerTest extends AbstractIntegrationTest {
 
     @Autowired private UserService userService;
 

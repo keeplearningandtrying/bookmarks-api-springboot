@@ -1,30 +1,30 @@
 package com.sivalabs.bookmarksapi.bookmarks.web.controllers;
 
-import static org.mockito.ArgumentMatchers.any;
-import static org.mockito.BDDMockito.given;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
-import com.sivalabs.bookmarksapi.bookmarks.models.BookmarksDTO;
-import com.sivalabs.bookmarksapi.bookmarks.services.BookmarkService;
-import com.sivalabs.bookmarksapi.common.AbstractWebMvcTest;
-import com.sivalabs.bookmarksapi.users.services.SecurityService;
+import com.sivalabs.bookmarksapi.common.AbstractIntegrationTest;
 import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
-import org.springframework.boot.test.mock.mockito.MockBean;
-import org.springframework.data.domain.Pageable;
 
-@WebMvcTest(controllers = BookmarkController.class)
-class BookmarkControllerTest extends AbstractWebMvcTest {
-    @MockBean protected BookmarkService bookmarkService;
-
-    @MockBean protected SecurityService securityService;
+class BookmarkControllerTest extends AbstractIntegrationTest {
 
     @Test
-    void shouldFetchBookmarksFirstPage() throws Exception {
-        BookmarksDTO bookmarksDTO = new BookmarksDTO();
-        given(bookmarkService.getAllBookmarks(any(Pageable.class))).willReturn(bookmarksDTO);
-
+    void shouldFetchLinksFirstPage() throws Exception {
         this.mockMvc.perform(get("/api/bookmarks")).andExpect(status().isOk());
+    }
+
+    @Test
+    void shouldFetchLinksSecondPage() throws Exception {
+        this.mockMvc.perform(get("/api/bookmarks?page=2")).andExpect(status().isOk());
+    }
+
+    @Test
+    void shouldFetchLinksByTag() throws Exception {
+        this.mockMvc.perform(get("/api/tags/spring-boot")).andExpect(status().isOk());
+    }
+
+    @Test
+    void shouldSearchLinks() throws Exception {
+        this.mockMvc.perform(get("/api/bookmarks/search?query=spring")).andExpect(status().isOk());
     }
 }
