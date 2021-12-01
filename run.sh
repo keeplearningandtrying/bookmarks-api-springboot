@@ -2,6 +2,7 @@
 
 declare project_dir=$(dirname "$0")
 declare dc_app=${project_dir}/docker/docker-compose.yml
+declare dc_sonar=${project_dir}/docker/docker-compose-sonar.yml
 declare services="bookmarks-api-springboot"
 
 function build_api() {
@@ -27,6 +28,11 @@ function restart() {
     start
 }
 
+function sonar() {
+    echo "Starting sonarqube...."
+    docker-compose -f "${dc_sonar}" up --build --force-recreate -d sonarqube
+    docker-compose -f "${dc_sonar}" logs -f sonarqube
+}
 
 action="start"
 
