@@ -1,2 +1,1 @@
-# bookmarks-api-springboot
-Bookmarks APi SpringBoot
+# Bookmarks API SpringBoot
